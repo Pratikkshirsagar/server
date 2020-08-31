@@ -5,7 +5,7 @@ const morgan = require('morgan');
 const moviesRoute = require('./routes/movies')
 const connectDB  = require('./config/db') 
 const fetchData = require('./utils/fetchData')
-
+const cors = require('cors');
 
 // Loading env vars
 dotenv.config({ path: './config/config.env'});
@@ -20,6 +20,9 @@ fetchData()
 const app = express();
 
 app.use(morgan('dev'));
+
+// Enable CORSE
+app.use(cors());
 
 // Body parser
 app.use(express.json());
