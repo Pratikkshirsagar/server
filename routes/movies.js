@@ -1,8 +1,7 @@
 const express = require('express');
 const router = express.Router();
+const {getMovies}  = require('../controllers/movieController')
 
-router.get('/', (req,res) => {
-  res.status(200).json({success: true, msg: 'movies'})
-})
+router.get('/',getMovies)
 
 module.exports = router;

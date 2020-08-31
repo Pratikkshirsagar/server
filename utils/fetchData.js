@@ -52,7 +52,8 @@ async function fetchData() {
 
     if(htmlEL.children[2].children[0]) {
       const rating = htmlEL.children[2].children[0].textContent.trim()
-      data.rating = rating
+
+      data.rating = parseFloat(rating)
     }
 
 

@@ -6,8 +6,10 @@ const moviesRoute = require('./routes/movies')
 const connectDB  = require('./config/db') 
 const fetchData = require('./utils/fetchData')
 
+
 // Loading env vars
 dotenv.config({ path: './config/config.env'});
+
 
 // Connect to database
 connectDB();
@@ -18,6 +20,9 @@ fetchData()
 const app = express();
 
 app.use(morgan('dev'));
+
+// Body parser
+app.use(express.json());
 
 app.use('/api/v1/movies', moviesRoute)
 
